@@ -25,12 +25,6 @@ classificacao = [('Montalegre',34, 8, 25, 27),
                  ('Vilar de Perdizes', 31, 7, 29, 30),
                 ('Tirsense', 43, 12, 37, 23)]
 
-jogos_a_realizar = [('Vila Real', 'Tirsense', 3, 1),
-                    ('Os Sandinenses', 'Montalegre', 4,2),
-                    ('Vilar de Perdizes', 'Marítimo B',1,0)]
-
-resultados += jogos_a_realizar
-
 def calcular_classificacao(jogos_realizados):
     # Converte a lista de classificação em um dicionário para facilitar a manipulação
     class_dict = {nome: {"Pontos": pontos, "Vitórias": vitorias, "GM": gm, "GS": gs} for nome, pontos, vitorias, gm, gs in classificacao}
@@ -116,6 +110,7 @@ def aplicar_criterios_desempate(equipas_empatadas):
 def calcular_classificacao_final(jogos_a_realizar):
     # Atualiza a classificação com os resultados dos jogos a realizar
     classificacao_atualizada = calcular_classificacao(jogos_a_realizar)
+    resultados += jogos_a_realizar
 
     # Calcula a classificação final considerando os desempates necessários
     classificacao_final = {}
@@ -148,8 +143,3 @@ def calcular_classificacao_final(jogos_a_realizar):
         i = j  # Avança para o próximo grupo de equipes
 
     return sorted(classificacao_final.items(), key=lambda x: (x[1]['Pontos'], x[1].get('Desempate', 0)), reverse=True)[1:]
-# Exibe a classificação final após desempate
-# for equipe, dados in sorted(classificacao_final.items(), key=lambda x: (x[1]['Pontos'], x[1].get('Desempate', 0)), reverse=True)[1:]:
-#     print(f"{equipe}: Pontos={dados['Pontos']}, Vitórias={dados['Vitórias']}, GM={dados['GM']}, GS={dados['GS']}")
-
-print(calcular_classificacao_final(jogos_a_realizar))
