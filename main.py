@@ -14,7 +14,7 @@ matches = [
 
 match_results = []
 for home_team, away_team in matches:
-    col1, col2, col3 = st.columns(3)
+    col1, col2 = st.columns(2)
     with col1:
         home_score = st.text_input(f"{home_team} (goals)", key=f"{home_team}_home")
     with col2:
