@@ -1,4 +1,4 @@
-
+from constants import classificacao, resultados
 
 def calcular_classificacao(jogos_realizados):
     # Converte a lista de classificação em um dicionário para facilitar a manipulação
@@ -83,33 +83,6 @@ def aplicar_criterios_desempate(equipas_empatadas):
     return resultado_terceiro
 
 def calcular_classificacao_final(jogos_a_realizar):
-
-    resultados = [('Montalegre', 'Vila Real', 0, 0),
-                ('Vila Real', 'Montalegre', 2, 0),
-                ('Vila Real', 'Marítimo B', 0, 0),
-                ('Marítimo B', 'Vila Real', 1, 2),
-                ('Os Sandinenses', 'Vila Real', 2, 1),
-                ('Vila Real', 'Os Sandinenses', 1, 1),
-                ('Vila Real', 'Vilar de Perdizes', 1, 0),
-                ('Vilar de Perdizes', 'Vila Real', 1, 1),
-                ('Montalegre', 'Marítimo B', 1, 3),
-                ('Marítimo B', 'Montalegre', 2, 1),
-                ('Os Sandinenses', 'Marítimo B', 2, 1),
-                ('Marítimo B', 'Os Sandinenses', 1, 0),
-                ('Marítimo B', 'Vilar de Perdizes', 2, 0),
-                ('Montalegre', 'Os Sandinenses', 4, 2),
-                ('Montalegre', 'Vilar de Perdizes', 1, 1),
-                ('Vilar de Perdizes', 'Montalegre', 2, 1),
-                ('Os Sandinenses', 'Vilar de Perdizes', 1, 1),
-                ('Vilar de Perdizes', 'Os Sandinenses', 0, 2),
-                ]
-    #Nome, Pontos, Vitórias, Golos Marcados, Golos sofridos
-    classificacao = [('Montalegre',34, 8, 25, 27),
-                    ('Os Sandinenses', 32, 7, 27, 31),
-                    ('Vila Real', 32, 7, 23, 22),
-                    ('Marítimo B', 32, 9, 32, 26),
-                    ('Vilar de Perdizes', 31, 7, 29, 30),
-                    ('Tirsense', 43, 12, 37, 23)]
     
     # Atualiza a classificação com os resultados dos jogos a realizar
     classificacao_atualizada = calcular_classificacao(jogos_a_realizar)
