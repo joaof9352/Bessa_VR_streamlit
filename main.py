@@ -1,5 +1,5 @@
 import streamlit as st
-from backend import calcular_classificacao_final
+from backend import ClassificacaoCalculator
 import pandas as pd
 
 st.set_page_config(
@@ -30,7 +30,8 @@ for home_team, away_team in matches:
     match_results.append((home_team, away_team, int(home_score or 0), int(away_score or 0)))
 
 if st.button("Calcular tabela", use_container_width=True):
-    final_standings = calcular_classificacao_final(match_results)
+    calc = ClassificacaoCalculator()
+    final_standings = calc.calcular_classificacao_final(match_results)
     
     # Convert final_standings to a DataFrame for display
     data = {
